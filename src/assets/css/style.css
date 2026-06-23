@@ -1,0 +1,287 @@
+/* ─── Fonts ─────────────────────────────────────────────── */
+
+@font-face {
+  font-family: "Inter Variable";
+  src: url("/assets/fonts/inter-variable.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "iA Writer Quattro Variable";
+  src: url("/assets/fonts/ia-writer-quattro-variable.ttf") format("truetype");
+  font-weight: 400 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ─── Design Tokens ─────────────────────────────────────── */
+
+:root {
+  /* Font stacks */
+  --font-ui:    "Inter Variable", system-ui, sans-serif;
+  --font-prose: "iA Writer Quattro Variable", "Georgia", serif;
+  --font-mono:  "Fira Code", "Consolas", monospace;
+
+  /* Type scale — ratio 1.25, base 16px */
+  --text-xs:   0.64rem;
+  --text-sm:   0.8rem;
+  --text-base: 1rem;
+  --text-lg:   1.25rem;
+  --text-xl:   1.563rem;
+  --text-2xl:  1.953rem;
+  --text-3xl:  2.441rem;
+  --text-4xl:  3.052rem;
+
+  /* Spacing scale — 8px base unit */
+  --space-1:  0.5rem;
+  --space-2:  1rem;
+  --space-3:  1.5rem;
+  --space-4:  2rem;
+  --space-6:  3rem;
+  --space-8:  4rem;
+  --space-12: 6rem;
+  --space-16: 8rem;
+
+  /* Colors — warm gray, near-monochrome */
+  --color-bg:         #F7F6F3;
+  --color-bg-subtle:  #EEEDE9;
+  --color-border:     #D4D2CB;
+  --color-text-muted: #888680;
+  --color-text:       #1A1917;
+  --color-link:       #2E4B9E;
+  --color-link-hover: #1A1917;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg:         #141312;
+    --color-bg-subtle:  #1E1D1B;
+    --color-border:     #2E2D2A;
+    --color-text-muted: #6B6965;
+    --color-text:       #E8E6E1;
+    --color-link:       #7DA4F0;
+    --color-link-hover: #E8E6E1;
+  }
+}
+
+/* ─── Reset ─────────────────────────────────────────────── */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ─── Base ──────────────────────────────────────────────── */
+
+html {
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-ui);
+  font-size: var(--text-base);
+  line-height: 1.6;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+}
+
+/* ─── Typography ────────────────────────────────────────── */
+
+h1, h2, h3, h4 {
+  font-family: var(--font-ui);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+h1 { font-size: var(--text-3xl); margin-bottom: var(--space-4); }
+h2 { font-size: var(--text-2xl); margin-bottom: var(--space-3); }
+h3 { font-size: var(--text-xl);  margin-bottom: var(--space-2); }
+h4 { font-size: var(--text-lg);  margin-bottom: var(--space-2); }
+
+p {
+  margin-bottom: var(--space-3);
+}
+
+/* Prose content (blog post body) uses the reading font */
+.prose {
+  font-family: var(--font-prose);
+  font-size: var(--text-lg);
+  line-height: 1.75;
+}
+
+.prose h1,
+.prose h2,
+.prose h3,
+.prose h4 {
+  font-family: var(--font-ui);
+  margin-top: var(--space-6);
+}
+
+.prose p + p {
+  margin-top: var(--space-3);
+}
+
+code {
+  font-family: var(--font-mono);
+  font-size: 0.875em;
+  background-color: var(--color-bg-subtle);
+  padding: 0.1em 0.35em;
+  border-radius: 3px;
+}
+
+pre {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  background-color: var(--color-bg-subtle);
+  border: 1px solid var(--color-border);
+  padding: var(--space-3);
+  overflow-x: auto;
+  margin-bottom: var(--space-3);
+}
+
+pre code {
+  background: none;
+  padding: 0;
+  font-size: inherit;
+}
+
+blockquote {
+  border-left: 3px solid var(--color-border);
+  padding-left: var(--space-3);
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-3);
+}
+
+/* ─── Links ─────────────────────────────────────────────── */
+
+a {
+  color: var(--color-link);
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+a:hover {
+  color: var(--color-link-hover);
+}
+
+/* Nav links: no underline, inherit color */
+nav a {
+  color: inherit;
+  text-decoration: none;
+}
+
+nav a:hover {
+  color: var(--color-link);
+}
+
+/* ─── Layout ────────────────────────────────────────────── */
+
+.container {
+  max-width: 720px;
+  margin-inline: auto;
+  padding-inline: var(--space-4);
+}
+
+.container--wide {
+  max-width: 960px;
+}
+
+/* ─── Header ────────────────────────────────────────────── */
+
+.site-header {
+  border-bottom: 1px solid var(--color-border);
+  padding-block: var(--space-3);
+}
+
+.site-header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+}
+
+.site-name {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+.site-nav {
+  display: flex;
+  gap: var(--space-4);
+  font-size: var(--text-sm);
+}
+
+/* ─── Footer ────────────────────────────────────────────── */
+
+.site-footer {
+  border-top: 1px solid var(--color-border);
+  padding-block: var(--space-4);
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+
+.site-footer .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+}
+
+.site-footer a {
+  color: inherit;
+}
+
+.site-footer a:hover {
+  color: var(--color-text);
+}
+
+/* ─── Responsive ────────────────────────────────────────── */
+
+@media (max-width: 768px) {
+  .site-header .container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-2);
+  }
+
+  .site-footer .container {
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  h1 { font-size: var(--text-2xl); }
+  h2 { font-size: var(--text-xl); }
+}
+
+/* ─── Post ──────────────────────────────────────────────── */
+
+.post-meta {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-6);
+}
+
+article header {
+  margin-bottom: var(--space-4);
+  padding-bottom: var(--space-4);
+  border-bottom: 1px solid var(--color-border);
+}
