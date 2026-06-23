@@ -1,0 +1,16 @@
+{
+  "name": "jonasglohse-website",
+  "version": "1.0.0",
+  "description": "Personal website — jonasglohse.github.io",
+  "scripts": {
+    "start": "eleventy --serve",
+    "build": "cross-env ELEVENTY_ENV=production eleventy"
+  },
+  "author": "Jonas Glohse",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "@11ty/eleventy": "^3.1.6",
+    "cross-env": "^10.1.0"
+  }
+}
