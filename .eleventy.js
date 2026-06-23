@@ -1,12 +1,30 @@
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/assets");
 
+  eleventyConfig.addFilter("htmlDateString", (date) => {
+    return new Date(date).toISOString().split("T")[0];
+  });
+
   eleventyConfig.addFilter("readableDate", (date) => {
     return new Intl.DateTimeFormat("en-GB", {
       day: "numeric",
       month: "long",
       year: "numeric",
     }).format(new Date(date));
+  });
+
+  eleventyConfig.addFilter("readingTime", (content) => {
+    const words = content.trim().split(/\s+/).length;
+    const minutes = Math.ceil(words / 200);
+    return `${minutes} min read`;
+  });
+
+  eleventyConfig.addCollection("post", (collectionApi) => {
+    const posts = collectionApi.getFilteredByTag("post");
+    if (process.env.ELEVENTY_ENV === "production") {
+      return posts.filter((p) => !p.data.draft);
+    }
+    return posts;
   });
 
   return {

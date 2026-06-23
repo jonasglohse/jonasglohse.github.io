@@ -1,0 +1,28 @@
+---
+layout: layouts/base.njk
+title: Writing
+description: Essays and notes by Jonas Glohse
+---
+
+<h1>Writing</h1>
+
+{% set posts = collections.post | reverse %}
+{% if posts.length %}
+  <ol class="post-list" reversed>
+    {% for post in posts %}
+      <li class="post-list__item">
+        <a href="{{ post.url }}" class="post-list__link">
+          <span class="post-list__title">{{ post.data.title }}</span>
+          <span class="post-list__meta">
+            <time datetime="{{ post.date | htmlDateString }}">{{ post.date | readableDate }}</time>
+            {% if post.data.description %}
+              <span class="post-list__desc">{{ post.data.description }}</span>
+            {% endif %}
+          </span>
+        </a>
+      </li>
+    {% endfor %}
+  </ol>
+{% else %}
+  <p class="post-list__empty">No posts yet.</p>
+{% endif %}
