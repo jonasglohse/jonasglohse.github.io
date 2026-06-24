@@ -121,7 +121,9 @@ p {
 .prose {
   font-family: var(--font-prose);
   font-size: var(--text-lg);
-  line-height: 1.75;
+  line-height: 1.65;
+  letter-spacing: -0.015em;
+  word-spacing: -0.02em;
 }
 
 .prose h1,
