@@ -259,22 +259,6 @@ nav a:hover {
 
 /* ─── Responsive ────────────────────────────────────────── */
 
-@media (max-width: 768px) {
-  .site-header .container {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: var(--space-2);
-  }
-
-  .site-footer .container {
-    flex-direction: column;
-    gap: var(--space-2);
-  }
-
-  h1 { font-size: var(--text-2xl); }
-  h2 { font-size: var(--text-xl); }
-}
-
 /* ─── Post List ────────────────────────────────────────── */
 
 .post-list {
@@ -325,6 +309,20 @@ nav a:hover {
 }
 
 @media (max-width: 768px) {
+  .site-header .container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-2);
+  }
+
+  .site-footer .container {
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  h1 { font-size: var(--text-2xl); }
+  h2 { font-size: var(--text-xl); }
+
   .post-list__link {
     flex-direction: column;
     gap: var(--space-1);
