@@ -6,9 +6,9 @@ description: Essays and notes by Jonas Glohse
 
 <h1>Writing</h1>
 
-{% set posts = collections.post | reverse %}
+{% set posts = collections.blogPosts | reverse %}
 {% if posts.length %}
-  <ol class="post-list" reversed>
+  <ol class="post-list">
     {% for post in posts %}
       <li class="post-list__item">
         <a href="{{ post.url }}" class="post-list__link">

@@ -14,12 +14,12 @@ module.exports = function (eleventyConfig) {
   });
 
   eleventyConfig.addFilter("readingTime", (content) => {
-    const words = content.trim().split(/\s+/).length;
+    const words = content.replace(/<[^>]+>/g, " ").trim().split(/\s+/).length;
     const minutes = Math.ceil(words / 200);
     return `${minutes} min read`;
   });
 
-  eleventyConfig.addCollection("post", (collectionApi) => {
+  eleventyConfig.addCollection("blogPosts", (collectionApi) => {
     const posts = collectionApi.getFilteredByTag("post");
     if (process.env.ELEVENTY_ENV === "production") {
       return posts.filter((p) => !p.data.draft);
