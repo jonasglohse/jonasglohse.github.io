@@ -92,6 +92,7 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  overflow-wrap: break-word;
 }
 
 main {
@@ -330,6 +331,18 @@ nav a:hover {
   .post-list__meta {
     align-items: flex-start;
   }
+}
+
+/* ─── Images ────────────────────────────────────────────── */
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.prose img {
+  margin-block: var(--space-6);
 }
 
 /* ─── Post ──────────────────────────────────────────────── */
