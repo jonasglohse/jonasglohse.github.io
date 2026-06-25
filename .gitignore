@@ -2,3 +2,4 @@ node_modules/
 _site/
 
 clean_image.py
+CLAUDE.md
