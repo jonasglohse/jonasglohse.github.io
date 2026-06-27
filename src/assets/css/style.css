@@ -358,3 +358,28 @@ img {
   padding-bottom: var(--space-4);
   border-bottom: 1px solid var(--color-border);
 }
+
+/* ─── Post Navigation ───────────────────────────────────── */
+
+.post-nav {
+  display: flex;
+  justify-content: space-between;
+  margin-top: var(--space-8);
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--color-border);
+  font-size: var(--text-sm);
+  gap: var(--space-4);
+}
+
+.post-nav a {
+  color: var(--color-text-muted);
+  text-decoration: none;
+}
+
+.post-nav a:hover {
+  color: var(--color-text);
+}
+
+.post-nav__next {
+  margin-left: auto;
+}
