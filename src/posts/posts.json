@@ -1,5 +1,5 @@
 {
   "layout": "layouts/post.njk",
-  "permalink": "/writing/{{ page.fileSlug }}/index.html",
+  "permalink": "/writing/{{ page.date | htmlDateString }}-{{ page.fileSlug }}/index.html",
   "tags": ["post"]
 }
