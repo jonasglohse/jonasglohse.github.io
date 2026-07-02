@@ -1,6 +1,6 @@
 ---
 title: "Wednesday"
-description: "On Wednesday I rode the Ferris wheel at the fair, and from the top I could see myself in the puddle below, going nowhere in perfect time with the version of me going somewhere."
+description: "On Wednesday I saw myself reflected in a puddle from the top of the Ferris wheel."
 date: 2026-07-01
 tags:
   - writing
